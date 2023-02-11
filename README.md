@@ -1,7 +1,7 @@
 # Nest_Tuto
 
 udemyの講座より。
-パッケージのインポートをしだしたあたり(lec8くらい)から苦戦中<br>
+今はlec13。苦戦中<br>
 講座制作者のリポジトリ: https://github.com/GomaGoma676/restapi-todo-nestjs
 
 # Nest.js
