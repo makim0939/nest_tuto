@@ -23,11 +23,10 @@ export class AuthController {
         @Body() dto: AuthDto,
         @Res({passthrough: true}) res: Response,
     ):Promise<Msg> {
-        
         const jwt = await this.authService.login(dto);
         res.cookie(
             'access_token', 
-            jwt.accessToken,
+            jwt.access_token,
             {
                 httpOnly: true,
                 secure: false,//動作確認時はfalse

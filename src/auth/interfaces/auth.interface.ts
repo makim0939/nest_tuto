@@ -10,5 +10,5 @@ export interface Csrf {
 }
 //
 export interface Jwt {
-    accessToken: string
+    access_token: string
 }

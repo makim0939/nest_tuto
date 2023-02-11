@@ -66,6 +66,8 @@ export class AuthService {
         return this.generateJwt(user.id, user.email)
     }
 
+    
+
     //jwt(json)を生成するメソッド//?::Promis<>って何
     async generateJwt(userId: number, email: string):Promise<Jwt> {
         const payload = {
@@ -81,6 +83,6 @@ export class AuthService {
             }
             )
         
-        return {accessToken: token}
+        return {access_token: token};
     }
 }
