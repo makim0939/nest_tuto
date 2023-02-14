@@ -15,11 +15,11 @@ export class UserController {
     ){}
 
     @Get()
-    getLoginUser(@Req() req: Request): Omit<User, 'password_hash'> {//?::@Reqってなんだっけ
+    getLoginUser(@Req() req: Request): Omit<User, 'password_hash'> {//?::@Reqってなんだっけ/←リクエストを受け取る変数を指定してるのかな
         return req.user;//?::なんでreqにuserが？?//← Nestの機能。詳しくわわからん
     }
 
-    @Patch()//?::Patchとは
+    @Patch()//?::Patchの仕様
     updateUser(
         @Req() req: Request,
         @Body() dto: UpdateUserDto,

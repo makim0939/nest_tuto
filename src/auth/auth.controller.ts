@@ -13,7 +13,10 @@ export class AuthController {
     ){}
 
     @Post('signup')
-    signup(@Body() dto: AuthDto):Promise<Msg> {//?::@Bodyがよくわからん
+    //?::@Bodyがよくわからん//←POSTで送られたデータを受け取る変数を指定
+    //?::Bodyにdtoを指定できるのなんで? 
+    //←リクエストボディがValidation Pipeにわたったとき、class-transformerによって、JSオブジェクトからClassのインスタンスに変換されるから。
+    signup(@Body() dto: AuthDto):Promise<Msg> {
         return this.authService.signup(dto);
     }
 

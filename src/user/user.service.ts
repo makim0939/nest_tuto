@@ -12,7 +12,7 @@ export class UserService {
     async updateUser(
         userId: number, 
         dto: UpdateUserDto,
-    ):Promise <Omit<User, 'password_hash'>> {//?::Omitってなにー
+    ):Promise <Omit<User, 'password_hash'>> {//?::Omitってなにー//←指定したフィールドを除外した型を指定できる。
         const user = await this.prisma.user.update(
             {
                 where: {
