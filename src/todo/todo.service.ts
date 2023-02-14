@@ -6,6 +6,7 @@ import { UpdateTaskDto } from './dto/update-task.dto';
 
 @Injectable()
 export class TodoService {
+    constructor(private prisma: PrismaService){}
 
     //特定のユーザのタスクを全て取得メソッド
     getTasks(userId: number): Promise<Task[]> {
@@ -68,7 +69,7 @@ export class TodoService {
     async deleteTaskById(
         userId: number,
         taskId: number,
-    ): Promise<Task> {
+    ): Promise<void> {
         //指定されたタスクがあるかを確認
         const task = await this.prisma.task.findUnique({
             where: {
@@ -80,13 +81,11 @@ export class TodoService {
             //タスクが見つからなかったり、userIdが一致しなかったら、ForbiddenExceptionを投げる
             throw new ForbiddenException("No permision to delete");
         };
-        return this.prisma.task.delete({
+        await this.prisma.task.delete({
             where:{
                 id: taskId,
             }
         });
-
-
     }
 
 

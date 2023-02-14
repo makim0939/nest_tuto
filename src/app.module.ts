@@ -18,7 +18,7 @@ import { ConfigModule } from '@nestjs/config';
     TodoModule,
     PrismaModule,
   ],
-  controllers: [AppController, TodoController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

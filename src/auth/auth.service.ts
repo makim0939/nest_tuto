@@ -20,7 +20,7 @@ export class AuthService {
 
     //?::asyncってなんだ
     async signup(dto: AuthDto):Promise<Msg> {
-        //?::awaitってなんだ
+        //?::awaitってなんだ//←bycript.hash(dto.password, 12)が終わるまでsignup内の下のこれより下の処理を実行しない。
         const hashed = await bycript.hash(dto.password, 12);//ハッシュを計算するのに2の12乗回の演算が必要
         
         try{
