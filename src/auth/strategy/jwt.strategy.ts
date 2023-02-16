@@ -1,5 +1,5 @@
 
-//AuthGuard("jwt")をカスタマイズする
+//ガードAuthGuard("jwt")をカスタマイズする
 
 import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
@@ -21,6 +21,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
                             let jwt = null;
                             if(req && req.cookies) {
                                 jwt = req.cookies['access_token'];
+                                console.log("jwt.strategy.ts req.cookies: ", req.cookies)
                             }
                             return jwt;
                         }, 

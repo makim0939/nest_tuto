@@ -1,16 +1,21 @@
 //認証関係のルーティング
 
-import { Body, Controller, Get, HttpCode, HttpStatus, Post, Res,} from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Post, Req, Res,} from '@nestjs/common';
 import { Request, Response } from 'express';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
-import { Msg } from './interfaces/auth.interface';
+import { Csrf, Msg } from './interfaces/auth.interface';
 
 @Controller('auth')
 export class AuthController {
     constructor(
         private readonly authService:AuthService,
     ){}
+
+    @Get('csrf')
+    getCsrfToken(@Req() req: Request): Csrf {
+        return {csrfToken: req.csrfToken()};
+    } 
 
     @Post('signup')
     //?::@Bodyがよくわからん//←POSTで送られたデータを受け取る変数を指定
@@ -32,7 +37,7 @@ export class AuthController {
             jwt.access_token,
             {
                 httpOnly: true,
-                secure: false,//動作確認時はfalse
+                secure: true,//動作確認時はfalse
                 sameSite: 'none',
                 path: '/',
             }
@@ -55,7 +60,7 @@ export class AuthController {
             '',//←アクセストークンを空にすることでログアウト
             {
                 httpOnly: true,
-                secure: false,//動作確認時はfalse
+                secure: true,//動作確認時はfalse
                 sameSite: 'none',
                 path: '/',
             }
