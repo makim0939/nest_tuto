@@ -71,7 +71,7 @@ export class AuthService {
       sub: userId,
       email, //自動的にemail: 変数の値となる
     };
-    const secret = this.config.get('JWT_SEQRET');
+    const secret = this.config.get('JWT_SECRET');
     const token = await this.jwt.signAsync(payload, {
       expiresIn: '5m', //アクセストークンの有効期限
       secret: secret,
