@@ -9,9 +9,8 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
-  @Get("takoyaki")
-  getTakoyaki(): string{
-    return "takoyaki"
+  @Get('takoyaki')
+  getTakoyaki(): string {
+    return 'takoyaki';
   }
-  
 }
