@@ -1,7 +1,6 @@
 # Nest_Tuto
 
 udemyの講座より。
-今はlec13。苦戦中<br>
 講座制作者のリポジトリ: https://github.com/GomaGoma676/restapi-todo-nestjs
 
 # Nest.js
