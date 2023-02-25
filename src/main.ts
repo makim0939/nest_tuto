@@ -11,7 +11,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   app.enableCors({
     credentials: true,
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3000', 'https://todo-nextjs-pied.vercel.app'],
   });
   //ミドルウェアcookieParser()を実装。Cookieヘッダーを解析し、req.cookies[クッキー名]を追加する。
   //cookieParser : https://www.npmjs.com/package/cookie-parser
